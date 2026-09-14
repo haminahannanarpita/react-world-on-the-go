@@ -1,16 +1,24 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Country from './Country';
 
-const Countries = ({countriesPromise}) => {
+const Countries = ({ countriesPromise }) => {
     const countriesData = use(countriesPromise);
     const countires = countriesData.countries;
+
+    const [visitedCounties, setVisitedCounties]=useState([]);
+    const handleVisitedCountry =(country)=>{
+        console.log("country was visited", country);
+    }
     console.log(countires);
     return (
         <div>
             <h1>Countires components: {countires.length} </h1>
-            {
-                countires.map(country => <Country key={country.cca3.cca3} country={country}></Country>)
-            }
+            <div className='grid grid-cols-3 justify-center items-center gap-6 m-4'>
+                {
+                    countires.map(country => <Country key={country.cca3.cca3} country={country} handleVisitedCountry={handleVisitedCountry}></Country>)
+                }
+            </div>
+
         </div>
     );
 };
