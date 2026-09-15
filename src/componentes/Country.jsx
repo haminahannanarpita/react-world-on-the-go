@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const Country = ({ country, handleVisitedCountry }) => {
+const Country = ({ country, handleVisitedCountry,handleVisitedFlag }) => {
     const Name = country.name.common;
     const Flag = country.flags.flags.png;
     const population = country.population.population;
     const region = country.region.region;
     const area = country.area.area;
 
-    console.log(Name, Flag, population, region);
+   
     const [visited, setVisitede]=useState(false)
     const handleVisited = ()=>{
     //   setVisitede(visited? false:true)
@@ -26,6 +26,8 @@ const Country = ({ country, handleVisitedCountry }) => {
                     <span className='text-blue-500 font-medium'>{area>300000 ?"Big country":"Small country"}</span></h3>
 
                 <button className='border-2 rounded-2xl p-2 bg-blue-600' onClick={handleVisited}>{visited?"Visited":"Not Visited"}</button>
+
+                <button className='border-2 rounded-2xl p-2 bg-blue-600' onClick={() => {handleVisitedFlag(Flag)}}>add flag</button>
                 
             </div>
 
