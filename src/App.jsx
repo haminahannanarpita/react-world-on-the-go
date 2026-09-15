@@ -13,7 +13,7 @@ function App() {
   return (
     <>
      <Suspense fallback={<p>waiting for message......</p>}>
-       <h1>react world on the go</h1>
+       
           <Countries countriesPromise={countriesPromise} />
      </Suspense>
 
